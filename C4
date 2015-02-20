@@ -32,4 +32,4 @@ if (c in['a'..'z']) or (c in['A'..'Z']) then k:=k+1
                     s[i]:=chr(ord(s[i])+max);
   end;
         write(s);
-            end.
+            end. {pascal zalupa}
