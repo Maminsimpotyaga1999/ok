@@ -1,0 +1,35 @@
+uses crt;
+var s:string;
+max,k,i:integer;
+c:char;
+begin
+clrscr;
+s:='';
+max:=0;
+repeat
+read(c);
+s:=s+c;
+if (c in['a'..'z']) or (c in['A'..'Z']) then k:=k+1
+  else begin
+  if k>max then begin max:=k;
+  end;
+  k:=0;
+  end;
+  until c='.';
+  for i:=1 to (length(s)-1) do begin
+ 
+       if (ord(s[i])>=ord('a')) and (ord(s[i])<=ord('z')) and ((ord(s[i])+max)>(ord('z'))) then
+       s[i]:=chr(ord('a')+ord(s[i])+max-ord('z')-1) 
+                    else
+                    if (ord(s[i])>=ord('a')) and (ord(s[i])<=ord('z')) and ((ord(s[i])+max)<=(ord('z'))) then
+                    s[i]:=chr(ord(s[i])+max);
+  end;
+  for i:=1 to (length(s)-1) do begin
+       if (ord(s[i])>=ord('A')) and (ord(s[i])<=ord('Z')) and ((ord(s[i])+max)>(ord('Z'))) then
+       s[i]:=chr(ord('A')+ord(s[i])+max-ord('Z')-1)
+                    else 
+                    if (ord(s[i])>=ord('A')) and (ord(s[i])<=ord('Z')) and ((ord(s[i])+max)<=ord('Z')) then
+                    s[i]:=chr(ord(s[i])+max);
+  end;
+        write(s);
+            end.
